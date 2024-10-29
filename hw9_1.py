@@ -38,5 +38,10 @@ def find_min_coins(amount, values):
 
     return result
 
+# Касир може ввести суму
+try:
+    amount = int(input("Enter the amount to provide change for: "))
+    values = [50, 25, 10, 5, 2, 1]  # Наявні номінали монет
+
 
 
