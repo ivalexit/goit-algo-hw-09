@@ -43,5 +43,25 @@ try:
     amount = int(input("Enter the amount to provide change for: "))
     values = [50, 25, 10, 5, 2, 1]  # Наявні номінали монет
 
+    # Жадібний алгоритм, замір часу, к-ть монет
+    start_time = time.time()
+    greedy_result = find_coins_greedy(amount, values)
+    greedy_time = (time.time() - start_time)
+    total_greedy_coins = sum(greedy_result.values())
+
+    # Алгоритм динамічного програмування, замір часу, к-ть монет
+    start_time = time.time()
+    dp_result = find_min_coins(amount, values)
+    dp_time = (time.time() - start_time)
+    total_dp_coins = sum(dp_result.values())
+
+    # Виведення результатів
+    print(f"\nAmount: {amount}, Coin denominations: {values}")
+    print(f"Greedy algorithm: {greedy_result}, Total coins: {total_greedy_coins}, Execution time: {greedy_time:.6f} sec")
+    print(f"Dynamic programming: {dp_result}, Total coins: {total_dp_coins}, Execution time: {dp_time:.6f} sec")
+
+except ValueError:
+    print("Please enter a valid integer for the amount.")
+
 
 
